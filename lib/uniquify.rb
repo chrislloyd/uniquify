@@ -34,8 +34,8 @@ module Uniquify
     def uniquify(*args, &block)
       options = args.pop if args.last.kind_of? Hash
       args.each do |name|
-        before_validation :on => :create do |record|
-          record.generate_unique(name, options, &block)
+        before_validation :on => :create do
+          generate_unique(name, options, &block)
         end
       end
     end
